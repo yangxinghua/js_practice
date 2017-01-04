@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task2</title>
+</head>
+
+<body>
+  <ul id="aqi-list">
+
+  </ul>
+
+  <script type="text/javascript">
+    var aqiData = [
+      ["北京", 90],
+      ["上海", 50],
+      ["福州", 10],
+      ["广州", 50],
+      ["成都", 90],
+      ["西安", 100],
+    ];
+
+    (function() {
+      var displaList = document.getElementById("aqi-list");
+      var index = 1;
+      for(var i=0; i<aqiData.length; i++) {
+        var childArr = aqiData[i];
+        if(childArr[1] > 60) {
+          var child = document.createElement("li");
+          child.innerHTML = "第" + index + "名:" + childArr[0] + ", " + childArr[1];
+          displaList.appendChild(child);
+          index ++;
+        }
+      }
+    })();
+
+  </script>
+
+</body>
+
+</html>

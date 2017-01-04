@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task3</title>
+</head>
+
+<body>
+  <ul id="source">
+    <li>北京空气质量：<b>90</b></li>
+    <li>上海空气质量：<b>70</b></li>
+    <li>天津空气质量：<b>80</b></li>
+    <li>广州空气质量：<b>50</b></li>
+    <li>深圳空气质量：<b>40</b></li>
+    <li>福州空气质量：<b>30</b></li>
+    <li>成都空气质量：<b>90</b></li>
+  </ul>
+
+  <ul id="resort">
+
+  </ul>
+
+  <button id="sort-btn">排序</button>
+
+  <script type="text/javascript">
+    function getData() {
+      var dataArray = [];
+      var sourceElement = document.getElementById("source");
+      var childNodes = sourceElement.getElementsByTagName("li");
+      for(var i=0; i<childNodes.length; i++) {
+          var node = childNodes[i];
+          var nodeElements = node.childNodes;
+          var arr = [node.innerHTML, nodeElements[1].innerHTML];
+          dataArray.push(arr);
+      }
+      return dataArray;
+    }
+
+    function sortAqiData(data) {
+        data.sort(function(a, b) {
+            console.log("a length >>>> " + a.length);
+            return a[1] - b[1];
+        });
+
+        return data;
+    }
+
+    function rendar(data) {
+
+    }
+
+    function init() {
+      var btn = document.getElementById("sort-btn");
+      btn.onclick = function() {
+        var dataArr = getData();
+        dataArr = sortAqiData(dataArr);
+        rendar(dataArr);
+      };
+    }
+
+    init();
+
+  </script>
+
+</body>
+
+</html>
