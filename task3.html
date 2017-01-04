@@ -41,15 +41,19 @@
 
     function sortAqiData(data) {
         data.sort(function(a, b) {
-            console.log("a length >>>> " + a.length);
-            return a[1] - b[1];
+            return b[1] - a[1];
         });
 
         return data;
     }
 
     function rendar(data) {
-
+        var resortElement = document.getElementById("resort");
+        for(var i=0; i<data.length; i++) {
+          var node = document.createElement("li");
+          node.innerHTML = "第" + (i+1) + "名:" + data[i][0];
+          resortElement.appendChild(node);
+        }
     }
 
     function init() {
